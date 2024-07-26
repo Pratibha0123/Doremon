@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer components { */
+
+
+/* .navlink {
+         @apply text-xl inline-block px-6 py-2 font-semibold text-gray-500;
+     }
+     .primary-btn {
+         @apply bg-gradient-to-r from-primary-80 to-primary duration-200 text-white font-semibold py-2 px-4 rounded-md my-3;
+     }
+ }
+ 
+ @layer utilities {
+     .center {
+         @apply flex justify-center items-center;
+     }
+ } */
