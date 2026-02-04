@@ -7,13 +7,20 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: '#037b7',
+                primary: '#00A0E9', // Doraemon Blue
+                secondary: '#EF3D43', // Red
+                accent: '#FFD700', // Yellow (Bell)
+                dark: '#333333',
+                light: '#F4F9FC', // Soft Sky Blueish White
             },
             container: {
                 center: true,
                 padding: {
-                    DEFAULT: '1 rem ',
-                    sm: "3rem",
+                    DEFAULT: '1rem',
+                    sm: "2rem",
+                    lg: "4rem",
+                    xl: "5rem",
+                    "2xl": "6rem",
                 },
             },
         },

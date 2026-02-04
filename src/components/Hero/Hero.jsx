@@ -1,121 +1,60 @@
 import React from "react";
-import { FaStar, FaYoutube } from "react-icons/fa";
-import HeroImg from "../../assets/dora-hero.png";
-import HeroImg2 from "../../assets/dora.png";
-import HeroBottom from "./HeroBottom";
-import { IoClose } from "react-icons/io5";
+import HeroImg from "../../assets/hero-banner.png";
+import { Link } from "react-router-dom";
+import { FaArrowRight, FaImages } from "react-icons/fa";
+import DoraemonPanic from "../Animations/DoraemonPanic";
 
 const Hero = () => {
-  const [isPlay, setIsPlay] = React.useState(false);
-  const handlePlay = () => {
-    setIsPlay(!isPlay);
-  };
   return (
-    <>
-      <div className=" min-h-[700px] center relative ">
-        <div className="container mt-12 sm:mt-0 pb-20 sm:pb-0">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-0 relative z-10">
-            {/* text content */}
-            <div className="space-y-3 md:space-y-7 flex flex-col justify-center text-center sm:text-left px-10 sm:px-0  ">
-              <div data-aos="fade-up">
-                <h1 className="text-4xl sm:text-4xl md:text-6xl font-bold">
-                  Watch Now in
-                </h1>
-                <h1 className="text-6xl font-bold text-primary">3D</h1>
-              </div>
-              <p
-                data-aos="fade-up"
-                data-aos-delay="300"
-                className="text-gray-500 text-sm font-semibold"
-              >
-                The first full story in the Doraemon series was published in
-                January 1970
-              </p>
-              <div
-                data-aos="fade-up"
-                data-aos-delay="400"
-                className="mx-auto sm:mx-0"
-              >
-                <button
-                  onClick={handlePlay}
-                  className="primary-btn center gap-2"
-                >
-                  Play on
-                  <span>
-                    <FaYoutube className="text-2xl" />
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {/* image section*/}
-            <div data-aos="zoom-in" className="relative">
-              <img
-                src={HeroImg}
-                alt=""
-                className="w-[180px] sm:w-[240px] lg:w-[340px] mx-auto relative z-50"
-              />
-              <div className="absloute z-0 bottom-0 left-0 w-[260px] mx-auto h-[20px] blur-2xl bg-black"></div>
-            </div>
-
-            {/* review section*/}
-            <div
-              data-aos="slide-left"
-              className="sm:pl-16 md:pl-24 flex justify-center sm:justify-end "
-            >
-              <div className="flex items-center justify-end">
-                <div className="space-y-4">
-                  <img
-                    src={HeroImg2}
-                    alt=""
-                    className="w-full h-[100px] object-cover rounded-xl shadow-md hover:scale-110 duration-200"
-                  />
-                  <p className="text-sm text-gray-400 flex items-center gap-2">
-                    4.7{" "}
-                    <span>
-                      <FaStar className="text-primary" />
-                    </span>
-                  </p>
-                  <p className="text-sm text-gray-400">
-                    Bandai Figuartszero Doraemont
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* bottom section */}
-        <HeroBottom />
+    <div id="home" className="relative w-full min-h-screen bg-gradient-to-br from-blue-300 via-white to-pink-100 flex items-center justify-center pt-20">
+      {/* Floating Panic Animation - Attention Grabber */}
+      <div className="absolute top-28 right-4 md:right-10 lg:right-20 z-20 pointer-events-none transform scale-75 md:scale-100">
+        {/* <DoraemonPanic /> */}
       </div>
-      {/* Video Play section */}
-      {isPlay && (
-        <div className="absolute z-[99999] top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm">
-          <div className="center h-full">
-            <div className="bg-white m-3 p-5 rounded-lg shadow-md w-full sm:w-[500px]">
-              <div className="pb-3 flex justify-between">
-                <h1 className="sm:text-xl font-bold ">
-                  Subscribe our TCJ youtube channel
-                </h1>
-                <IoClose
-                  className="text-3xl cursor-pointer hover:scale-110 duration-200"
-                  onClick={handlePlay}
-                />
-              </div>
-              <iframe
-                width="100%"
-                height="260"
-                src="https://www.youtube.com/embed/i9e9Xz4OHig?si=rZ_k0qUIcjUIPUH_"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
+      {/* Decorative Circles */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+      <div className="absolute top-40 right-10 w-32 h-32 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+      <div className="absolute -bottom-8 left-20 w-32 h-32 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+
+      <div className="container mx-auto px-4 z-10 text-center">
+        {/* Main Content */}
+        <div data-aos="fade-down" className="mb-8">
+          <h1 className="text-5xl md:text-7xl font-black text-primary tracking-tight drop-shadow-sm mb-4">
+            Welcome to <br />
+            <span className="text-secondary inline-block transform hover:scale-105 transition-transform duration-300">Doraemeon World</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-700 font-medium max-w-2xl mx-auto leading-relaxed">
+            Explore the magical world of futuristic gadgets, fun characters, and endless adventures!
+          </p>
         </div>
-      )}
-    </>
+
+        {/* Buttons */}
+        <div data-aos="fade-up" data-aos-delay="200" className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+          <Link to="/characters" className="group relative px-8 py-4 bg-primary text-white font-bold text-lg rounded-full shadow-lg overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
+            <span className="relative z-10 flex items-center gap-2">
+              Explore Characters <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </span>
+            <div className="absolute inset-0 h-full w-full bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+          </Link>
+          <Link to="/gallery" className="group relative px-8 py-4 bg-white text-primary border-2 border-primary font-bold text-lg rounded-full shadow-lg overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
+            <span className="relative z-10 flex items-center gap-2">
+              View Gallery <FaImages className="group-hover:rotate-12 transition-transform" />
+            </span>
+            <div className="absolute inset-0 h-full w-full bg-blue-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+          </Link>
+        </div>
+
+        {/* Hero Image */}
+        {/* <div data-aos="zoom-in" data-aos-delay="400" className="relative w-full max-w-5xl mx-auto">
+          <img
+            src={HeroImg}
+            alt="Doraemon and Friends flying"
+            className="w-full h-auto object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500"
+          />
+
+      </div> */}
+      </div>
+    </div >
   );
 };
 

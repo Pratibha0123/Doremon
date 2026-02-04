@@ -1,49 +1,73 @@
-import React from 'react'
-
-import {Routes,Route} from 'react-router-dom'
-
-
-
-import AOS from "aos"
+import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import AOS from "aos";
 import "aos/dist/aos.css";
+
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
-import HeroBottom from './components/Hero/HeroBottom';
+import Characters from './components/Characters/Characters';
+import Gadgets from './components/Gadgets/Gadgets';
+import Gallery from './components/Gallery/Gallery';
+import Movies from './components/Movies/Movies';
+import Parents from './components/Family/Parents';
+import About from './components/About/About';
 import Footer from './components/Footer/Footer';
-import About from './components/About/About'
-import Contact from './components/Contact';
 
+import RunningDoraemonIcon from './components/Animations/RunningDoraemonIcon'; // Keep for other routes
+import CharactersPage from './pages/CharactersPage';
+import CharacterDetailPage from './pages/CharacterDetailPage';
+
+import Home from './Home';
 
 const App = () => {
-  React.useEffect(()=>{
+  useEffect(() => {
     AOS.init({
-        duration:700,
-        easing:"ease-in-sine",
-        offset:100,
-      });
+      duration: 800,
+      easing: "ease-in-out",
+      offset: 100,
+      once: true,
+    });
+  }, []);
 
-  },[]);
-  return (<>
-  <div className="overFlow-hidden"> 
-    <Navbar/>
-    <Hero/>
- 
-  {/* <HeroBottom/> */}
-   
-  <Routes>
-     <Route path ='/About' element={<About/>} />
-      <Route path='/contact'  element={<Contact/>}/>
-      {/* <Route path='service'  element={<
-        Service/>} */}
-     
-    </Routes>  
-    <Footer/> 
-  
-  </div>
-  </>
-    
-    
-  )
+  return (
+    <div className="bg-white text-dark font-sans selection:bg-primary selection:text-white">
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route
+          path="/gallery"
+          element={
+            <>
+              <RunningDoraemonIcon />
+              <Gallery />
+            </>
+          }
+        />
+
+        <Route
+          path="/movies"
+          element={
+            <>
+              <RunningDoraemonIcon />
+              <Movies />
+            </>
+          }
+        />
+
+        <Route path="/gadgets" element={<Gadgets />} />
+        <Route path="/parents" element={<Parents />} />
+
+        <Route path="/characters" element={<CharactersPage />} />
+        <Route path="/characters/:id" element={<CharacterDetailPage />} />
+      </Routes >
+
+      <Footer />
+    </div >
+  );
 };
 
-export default App
+export default App;
