@@ -18,31 +18,31 @@ const Home = () => {
             <Hero />
 
             {/* 2. Running Animation */}
-            {/* <RunningDoraemonIcon /> */}
+            <RunningDoraemonIcon />
 
-            {/* 3. Characters Preview */}
-            <Characters />
+            {/* 3. About Doraemon (Origin & History) - Moved UP per request */}
+            <About />
 
-            {/* 4. Famous Gadgets Highlight */}
-            <FeaturedGadgets />
-
-            {/* 5. Voice Interaction */}
-            <VoiceButtons />
-
-            {/* 6. Movie Journey */}
+            {/* 4. Movie History Timeline */}
             <MovieJourney />
 
-            {/* 7. Gallery Preview (Using full gallery component for now, or could limit it) */}
+            {/* 5. Characters Preview */}
+            <Characters />
+
+            {/* 6. Famous Gadgets */}
+            <FeaturedGadgets />
+
+            {/* 7. Gallery Grid */}
             <Gallery />
 
-            {/* 8. Fun Facts */}
+            {/* 8. Voice Interaction */}
+            <VoiceButtons />
+
+            {/* 9. Fun Facts & Extras */}
             <FunFacts />
 
-            {/* 9. Call to Action */}
+            {/* 10. Call to Action */}
             <CallToAction />
-
-            {/* Extra: About Section (kept at bottom or remove if CTA is last) */}
-            <About />
         </main>
     );
 };

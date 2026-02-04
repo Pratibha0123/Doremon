@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DoraImg from "../../assets/dora-hero.png"; // Using a dynamic looking image
+import DoraReelImg from "../../assets/doraemon_reel.png"; // Placeholder for the running-with-reel image
 
 const RunningDoraemonIcon = ({ className = "" }) => {
     const [isSpeeding, setIsSpeeding] = useState(false);
@@ -20,13 +20,13 @@ const RunningDoraemonIcon = ({ className = "" }) => {
             >
                 {/* Tooltip */}
                 <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-primary text-xs font-bold px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md whitespace-nowrap border border-blue-100">
-                    Doraemon on an Adventure! 🎬
+                    Filming the Next Movie! 🎥
                 </div>
 
                 {/* Doraemon Image with bobbing animation */}
                 <img
-                    src={DoraImg}
-                    alt="Running Doraemon"
+                    src={DoraReelImg}
+                    alt="Doraemon Running with Reel"
                     className="w-24 h-24 object-contain animate-bounce-run drop-shadow-lg"
                 />
 

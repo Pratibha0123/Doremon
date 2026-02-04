@@ -40,13 +40,27 @@ import Suneo from "../../assets/suneo.png";
 import SuneoAvatar from "../../assets/suneo_avatar_chat_1768758973058.png";
 import TimeCloth from "../../assets/time-cloth.png";
 import TimeMachine from "../../assets/time-machine.png";
+import GrandmaImg from "../../assets/family/Grandma Nobi.png";
+import GrandpaImg from "../../assets/family/Nobiru Nobi.png";
+import FatherImg from "../../assets/family/Nobisuke Nobi,.png";
+import UncleImg from "../../assets/family/Nobirou Nobi.png";
+import SonImg from "../../assets/family/Nobisuke Jr..png";
+import SewashiImg from "../../assets/family/Sewashi Nobi.png";
+import TamakoImg from "../../assets/tamako.png";
 
 import Moment1 from "../../assets/gallery-images/doraemon_moments_1.png";
+import DoraWaving from "../../assets/doraemon-waving.png";
+import DoraRunning from "../../assets/doraemon_running_reel.png";
+import NobitaFamily from "../../assets/family/Nobita Nobi.png";
+import TamakoFamily from "../../assets/family/Tamako Nobi.png";
 
 const galleryData = [
     // Moments
     { id: 1, category: 'Moments', src: Moment1, title: 'Snack Time', desc: 'Doraemon and Nobita enjoying their favorite Dorayaki!' },
     { id: 2, category: 'Moments', src: Dora, title: 'Happy Doraemon', desc: 'Doraemon smiling brightly!' },
+    { id: 41, category: 'Moments', src: DoraWaving, title: 'Hello Friends!', desc: 'Doraemon waving happily.' },
+    { id: 42, category: 'Moments', src: DoraRunning, title: 'Movie Maker', desc: 'Doraemon rushing with a film reel.' },
+    { id: 43, category: 'Moments', src: DoraImg, title: 'Classic Doraemon', desc: 'The original blue robot cat.' },
     { id: 3, category: 'Moments', src: HeroImg, title: 'Adventure Time', desc: 'The whole gang flying high together.' },
     { id: 4, category: 'Moments', src: DoraHero, title: 'Main Hero', desc: 'Doraemon ready for action.' },
     { id: 5, category: 'Moments', src: NobitaRoom, title: 'Nobita\'s Room', desc: 'The iconic room where everything begins.' },
@@ -55,12 +69,21 @@ const galleryData = [
 
     // Characters
     { id: 8, category: 'Characters', src: NobitaImg, title: 'Nobita Nobi', desc: 'The lazy but kind-hearted boy.' },
+    { id: 44, category: 'Characters', src: NobitaFamily, title: 'Nobita (Portrait)', desc: 'Nobita in his family portrait.' },
     { id: 9, category: 'Characters', src: ShizukaImg, title: 'Shizuka Minamoto', desc: 'The sweet and smart girl.' },
     { id: 10, category: 'Characters', src: Gian, title: 'Takeshi Goda (Gian)', desc: 'The neighborhood bully with a soft spot.' },
     { id: 11, category: 'Characters', src: Suneo, title: 'Suneo Honekawa', desc: 'Rich, boastful, and quick-witted.' },
     { id: 12, category: 'Characters', src: Dorami, title: 'Dorami', desc: 'Doraemon\'s capable younger sister.' },
     { id: 13, category: 'Characters', src: Dekisugi, title: 'Hidetoshi Dekisugi', desc: 'The ace student and perfect boy.' },
     { id: 14, category: 'Characters', src: Jaiko, title: 'Jaiko', desc: 'Gian\'s younger sister who loves manga.' },
+    { id: 34, category: 'Characters', src: GrandpaImg, title: 'Nobiru Nobi', desc: 'Nobita\'s stern but wise grandfather.' },
+    { id: 35, category: 'Characters', src: GrandmaImg, title: 'Grandma Nobi', desc: 'The kindest grandmother.' },
+    { id: 36, category: 'Characters', src: FatherImg, title: 'Nobisuke Nobi', desc: 'Nobita\'s hardworking father.' },
+    { id: 37, category: 'Characters', src: TamakoImg, title: 'Tamako Nobi', desc: 'Nobita\'s strict but loving mother.' },
+    { id: 45, category: 'Characters', src: TamakoFamily, title: 'Tamako (Portrait)', desc: 'Tamako in her best dress.' },
+    { id: 38, category: 'Characters', src: UncleImg, title: 'Uncle Nobirou', desc: 'The adventurous uncle.' },
+    { id: 39, category: 'Characters', src: SonImg, title: 'Nobisuke Jr.', desc: 'Nobita\'s strong son from the future.' },
+    { id: 40, category: 'Characters', src: SewashiImg, title: 'Sewashi Nobi', desc: 'Doraemon\'s owner from the 22nd century.' },
     { id: 15, category: 'Characters', src: DoraemonChatAvatar, title: 'Doraemon Avatar', desc: 'Cute Doraemon close-up.' },
     { id: 16, category: 'Characters', src: NobitaAvatar, title: 'Nobita Avatar', desc: 'Nobita looking surprised.' },
     { id: 17, category: 'Characters', src: ShizukaAvatar, title: 'Shizuka Avatar', desc: 'Shizuka smiling sweetly.' },
@@ -118,11 +141,6 @@ const Gallery = () => {
 
     return (
         <div id="gallery" className="min-h-screen bg-gradient-to-b from-light to-white py-24 relative overflow-x-hidden">
-            {/* Running Animation */}
-            <div className="absolute top-20 left-0 w-full z-20">
-                <RunningDoraemonIcon />
-            </div>
-
             {/* Background Decorative Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 <div className="absolute top-10 left-10 w-32 h-32 bg-primary rounded-full blur-3xl opacity-20"></div>
@@ -154,14 +172,16 @@ const Gallery = () => {
                 />
             </div>
 
-            <LightboxModal
-                image={selectedImage}
-                onClose={() => setSelectedImage(null)}
-                onNext={handleNext}
-                onPrev={handlePrev}
-                hasNext={hasNext}
-                hasPrev={hasPrev}
-            />
+            {selectedImage && (
+                <LightboxModal
+                    image={selectedImage}
+                    onClose={() => setSelectedImage(null)}
+                    onNext={handleNext}
+                    onPrev={handlePrev}
+                    hasNext={hasNext}
+                    hasPrev={hasPrev}
+                />
+            )}
         </div>
     );
 };

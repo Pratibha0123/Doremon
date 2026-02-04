@@ -2,9 +2,11 @@ import React from "react";
 import DoraemonImg from "../../assets/doraemon.png";
 import NobitaImg from "../../assets/nobita.png";
 import ShizukaImg from "../../assets/shizuka.png";
-// Using placeholders for others if not generated
-const GianImg = "https://placehold.co/300x400/FFA500/white?text=Gian";
-const SuneoImg = "https://placehold.co/300x400/87CEEB/white?text=Suneo";
+import GianImg from "../../assets/gian.png";
+import SuneoImg from "../../assets/suneo.png";
+import DoramiImg from "../../assets/dorami.png";
+import DekisugiImg from "../../assets/dekisugi.png";
+import JaikoImg from "../../assets/jaiko.png";
 
 const charactersData = [
     {
@@ -37,6 +39,24 @@ const charactersData = [
         color: "bg-green-100",
         desc: "A wealthy and arrogant boy who loves to show off his toys.",
     },
+    {
+        name: "Dorami",
+        img: DoramiImg,
+        color: "bg-yellow-50",
+        desc: "Doraemon's younger sister. She is smarter and more capable than him!",
+    },
+    {
+        name: "Hidetoshi Dekisugi",
+        img: DekisugiImg,
+        color: "bg-indigo-50",
+        desc: "The ace student. Good at everything, making Nobita jealous.",
+    },
+    {
+        name: "Jaiko Goda",
+        img: JaikoImg,
+        color: "bg-red-50",
+        desc: "Gian's younger sister. She loves writing manga and is Gian's soft spot.",
+    }
 ];
 
 const Characters = () => {

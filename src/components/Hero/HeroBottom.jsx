@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { FaArrowDown } from "react-icons/fa";
 const HeroBottom = () => {

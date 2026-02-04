@@ -1,8 +1,7 @@
 import React from "react";
-import HeroImg from "../../assets/hero-banner.png";
 import { Link } from "react-router-dom";
 import { FaArrowRight, FaImages } from "react-icons/fa";
-import DoraemonPanic from "../Animations/DoraemonPanic";
+import HeroAnimation from '../Animations/HeroAnimation'; // Import the new animation component
 
 const Hero = () => {
   return (
@@ -44,15 +43,10 @@ const Hero = () => {
           </Link>
         </div>
 
-        {/* Hero Image */}
-        {/* <div data-aos="zoom-in" data-aos-delay="400" className="relative w-full max-w-5xl mx-auto">
-          <img
-            src={HeroImg}
-            alt="Doraemon and Friends flying"
-            className="w-full h-auto object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-500"
-          />
-
-      </div> */}
+        {/* Hero Image / Animation */}
+        <div data-aos="zoom-in" data-aos-delay="400" className="relative w-full max-w-5xl mx-auto">
+          <HeroAnimation />
+        </div>
       </div>
     </div >
   );
