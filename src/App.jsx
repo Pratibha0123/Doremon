@@ -12,8 +12,9 @@ import Movies from './components/Movies/Movies';
 import Parents from './components/Family/Parents';
 import About from './components/About/About';
 import Footer from './components/Footer/Footer';
+import MusicController from './components/Audio/MusicController';
 
-import RunningDoraemonIcon from './components/Animations/RunningDoraemonIcon'; // Keep for other routes
+import RunningDoraemonIcon from './components/Animations/RunningDoraemonIcon';
 import CharactersPage from './pages/CharactersPage';
 import CharacterDetailPage from './pages/CharacterDetailPage';
 
@@ -42,7 +43,7 @@ const App = () => {
           path="/gallery"
           element={
             <>
-              <RunningDoraemonIcon />
+              <MusicController forcedTrack="main" />
               <Gallery />
             </>
           }
@@ -52,7 +53,7 @@ const App = () => {
           path="/movies"
           element={
             <>
-              <RunningDoraemonIcon />
+              <MusicController forcedTrack="rock" />
               <Movies />
             </>
           }

@@ -3,14 +3,12 @@ import { FaClock, FaHeart, FaLeaf, FaRobot } from 'react-icons/fa';
 
 import GrandmaImg from "../../assets/family/Grandma Nobi.png";
 import GrandpaImg from "../../assets/family/Nobiru Nobi.png";
-import FatherImg from "../../assets/family/Nobisuke Nobi,.png"; // Note the comma in filename
+import FatherImg from "../../assets/family/Nobisuke Nobi,.png";
 import NobitaImg from "../../assets/family/Nobita Nobi.png";
 import UncleImg from "../../assets/family/Nobirou Nobi.png";
-import SonImg from "../../assets/family/Nobisuke Jr..png"; // Note the double dot in filename
+import SonImg from "../../assets/family/Nobisuke Jr..png";
 import SewashiImg from "../../assets/family/Sewashi Nobi.png";
-import TamakoMetaImg from "../../assets/tamako.png";  // Using existing tamako image from assets root or just reuse imports
-
-// Note: Grandfather image is missing in family folder, keeping placeholder.
+import TamakoMetaImg from "../../assets/tamako.png";
 
 const familyData = [
     {
@@ -98,7 +96,6 @@ const familyData = [
 const FamilyTree = () => {
     return (
         <section className="py-20 relative overflow-hidden">
-            {/* Background Line */}
             <div className="absolute left-1/2 top-0 bottom-0 w-2 bg-gradient-to-b from-amber-200 via-pink-200 to-purple-300 transform -translate-x-1/2 z-0 hidden md:block rounded-full opacity-50"></div>
 
             <div className="container mx-auto px-4 relative z-10">
@@ -112,13 +109,11 @@ const FamilyTree = () => {
                 <div className="flex flex-col gap-16">
                     {familyData.map((gen, index) => (
                         <div key={gen.generation} className="relative" data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}>
-                            {/* Generation Header */}
                             <div className="flex items-center justify-center gap-3 mb-8">
                                 <span className="bg-white p-3 rounded-full shadow-md text-2xl">{gen.icon}</span>
                                 <h3 className="text-2xl font-bold text-gray-700">{gen.generation}</h3>
                             </div>
 
-                            {/* Generation Card Container */}
                             <div className={`p-8 rounded-3xl border-4 ${gen.theme} shadow-lg relative bg-white/80 backdrop-blur-sm hover:shadow-2xl transition-all duration-500`}>
                                 <p className="text-center text-gray-500 italic mb-8">{gen.description}</p>
 

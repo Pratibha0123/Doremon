@@ -6,12 +6,6 @@ const Parents = () => {
     return (
         <div className="min-h-screen bg-light py-24">
             <div className="container mx-auto px-4 max-w-4xl">
-                {/* Header */}
-                {/* Header (Removed) */}
-
-                {/* Intro removed per user request */}
-
-                {/* Family Tree Section */}
                 <FamilyTree />
             </div>
         </div>

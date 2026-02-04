@@ -77,7 +77,6 @@ const Characters = () => {
                             data-aos-delay={index * 100}
                             className={`group relative rounded-3xl p-6 ${char.color} hover:bg-white border-2 border-transparent hover:border-primary transition-all duration-300 shadow-sm hover:shadow-2xl cursor-pointer`}
                         >
-                            {/* Image Container */}
                             <div className="h-64 w-full flex items-center justify-center mb-6 relative z-10">
                                 <img
                                     src={char.img}
@@ -86,13 +85,11 @@ const Characters = () => {
                                 />
                             </div>
 
-                            {/* Content */}
                             <div className="text-center relative z-10">
                                 <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-primary transition-colors">{char.name}</h3>
                                 <p className="text-sm text-gray-600 line-clamp-3">{char.desc}</p>
                             </div>
 
-                            {/* Hover Overlay Effect */}
                             <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 rounded-3xl transition-opacity duration-300 pointer-events-none"></div>
                         </div>
                     ))}

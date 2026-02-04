@@ -58,6 +58,10 @@
     .animate-hover-gentle {
         animation: hoverGentle 3s ease-in-out infinite;
     }
+
+    .animate-spin-slow {
+        animation: spin 8s linear infinite;
+    }
 }
 
 @keyframes fadeIn {
@@ -206,5 +210,15 @@
     100% {
         opacity: 1;
         transform: translate(-50%, 0) scale(1);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }

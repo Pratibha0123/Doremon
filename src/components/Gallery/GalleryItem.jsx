@@ -4,7 +4,7 @@ import { FaSearchPlus } from "react-icons/fa";
 const GalleryItem = ({ image, onClick }) => {
     return (
         <div
-            className="relative group rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500 bg-white break-inside-avoid mb-6"
+            className="relative group rounded-[20px] overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 bg-white break-inside-avoid mb-6"
             onClick={() => onClick(image)}
             data-aos="fade-up"
         >

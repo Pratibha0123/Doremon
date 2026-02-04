@@ -6,12 +6,10 @@ import RunningDoraemonIcon from '../Animations/RunningDoraemonIcon';
 
 // Import existing assets
 import HeroImg from "../../assets/hero-banner.png";
-import DoraImg from "../../assets/doraemon.png"; // Keeping for reference if needed
+import DoraImg from "../../assets/doraemon.png";
 import AgDoor from "../../assets/anywhere-door.png";
 import NobitaImg from "../../assets/nobita.png";
 import ShizukaImg from "../../assets/shizuka.png";
-
-// Import new assets from folder
 import BambooCopter from "../../assets/bamboo-copter.png";
 import BigLight from "../../assets/big-light.png";
 import Dekisugi from "../../assets/dekisugi.png";
@@ -55,7 +53,6 @@ import NobitaFamily from "../../assets/family/Nobita Nobi.png";
 import TamakoFamily from "../../assets/family/Tamako Nobi.png";
 
 const galleryData = [
-    // Moments
     { id: 1, category: 'Moments', src: Moment1, title: 'Snack Time', desc: 'Doraemon and Nobita enjoying their favorite Dorayaki!' },
     { id: 2, category: 'Moments', src: Dora, title: 'Happy Doraemon', desc: 'Doraemon smiling brightly!' },
     { id: 41, category: 'Moments', src: DoraWaving, title: 'Hello Friends!', desc: 'Doraemon waving happily.' },
@@ -66,8 +63,6 @@ const galleryData = [
     { id: 5, category: 'Moments', src: NobitaRoom, title: 'Nobita\'s Room', desc: 'The iconic room where everything begins.' },
     { id: 6, category: 'Moments', src: GianConcert, title: 'Gian\'s Recital', desc: 'Gian singing his heart out (plug your ears!).' },
     { id: 7, category: 'Moments', src: ShizukaMusic, title: 'Shizuka\'s Violin', desc: 'Shizuka practicing her violin.' },
-
-    // Characters
     { id: 8, category: 'Characters', src: NobitaImg, title: 'Nobita Nobi', desc: 'The lazy but kind-hearted boy.' },
     { id: 44, category: 'Characters', src: NobitaFamily, title: 'Nobita (Portrait)', desc: 'Nobita in his family portrait.' },
     { id: 9, category: 'Characters', src: ShizukaImg, title: 'Shizuka Minamoto', desc: 'The sweet and smart girl.' },
@@ -89,8 +84,6 @@ const galleryData = [
     { id: 17, category: 'Characters', src: ShizukaAvatar, title: 'Shizuka Avatar', desc: 'Shizuka smiling sweetly.' },
     { id: 18, category: 'Characters', src: GianAvatar, title: 'Gian Avatar', desc: 'Gian looking tough.' },
     { id: 19, category: 'Characters', src: SuneoAvatar, title: 'Suneo Avatar', desc: 'Suneo planning something.' },
-
-    // Gadgets
     { id: 20, category: 'Gadgets', src: AgDoor, title: 'Anywhere Door', desc: 'Go anywhere instantly!' },
     { id: 21, category: 'Gadgets', src: BambooCopter, title: 'Bamboo Copter', desc: 'Fly freely through the sky.' },
     { id: 22, category: 'Gadgets', src: BigLight, title: 'Big Light', desc: 'Make anything bigger!' },
@@ -99,8 +92,6 @@ const galleryData = [
     { id: 25, category: 'Gadgets', src: MemoryBread, title: 'Memory Bread', desc: 'Memorize exams by eating bread!' },
     { id: 26, category: 'Gadgets', src: IfPhone, title: 'What-If Phone Box', desc: 'Experience a parallel world.' },
     { id: 27, category: 'Gadgets', src: GadgetMiniatures, title: 'Gadget Collection', desc: 'A collection of pocket gadgets.' },
-
-    // Fun & Toys (Friendship & Fun)
     { id: 28, category: 'Friendship & Fun', src: DoraemonNobitaToys, title: 'Play Time', desc: 'Having fun with toys.' },
     { id: 29, category: 'Friendship & Fun', src: DoraemonStackingToy, title: 'Stacking Doraemon', desc: 'Balance game fun!' },
     { id: 30, category: 'Friendship & Fun', src: DoraemonRobotToy, title: 'Robot Figures', desc: 'Cool robotic figures.' },
@@ -111,14 +102,21 @@ const galleryData = [
 
 const categories = ['All', 'Moments', 'Characters', 'Gadgets', 'Friendship & Fun'];
 
-const Gallery = () => {
+const Gallery = ({ isPreview = false }) => {
     const [activeCategory, setActiveCategory] = useState('All');
     const [selectedImage, setSelectedImage] = useState(null);
 
     const filteredImages = useMemo(() => {
+        if (isPreview) {
+            const highlights = galleryData.filter(item =>
+                ['Hello Friends!', 'Nobita (Portrait)', 'Adventure Time', 'Classic Doraemon'].includes(item.title) ||
+                item.category === 'Moments'
+            ).slice(0, 8);
+            return highlights.length > 0 ? highlights : galleryData.slice(0, 8);
+        }
         if (activeCategory === 'All') return galleryData;
         return galleryData.filter(img => img.category === activeCategory);
-    }, [activeCategory]);
+    }, [activeCategory, isPreview]);
 
     const handleNext = () => {
         if (!selectedImage) return;
@@ -140,36 +138,52 @@ const Gallery = () => {
     const hasPrev = selectedImage && filteredImages.findIndex(img => img.id === selectedImage.id) > 0;
 
     return (
-        <div id="gallery" className="min-h-screen bg-gradient-to-b from-light to-white py-24 relative overflow-x-hidden">
-            {/* Background Decorative Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-10 left-10 w-32 h-32 bg-primary rounded-full blur-3xl opacity-20"></div>
-                <div className="absolute bottom-10 right-10 w-64 h-64 bg-secondary rounded-full blur-3xl opacity-20"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent rounded-full blur-3xl opacity-20"></div>
-            </div>
+        <div id="gallery" className={`${isPreview ? 'py-6 bg-white' : 'min-h-screen bg-gradient-to-b from-light to-white py-24'} relative overflow-x-hidden`}>
+            {!isPreview && (
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                    <div className="absolute top-10 left-10 w-32 h-32 bg-primary rounded-full blur-3xl opacity-20"></div>
+                    <div className="absolute bottom-10 right-10 w-64 h-64 bg-secondary rounded-full blur-3xl opacity-20"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent rounded-full blur-3xl opacity-20"></div>
+                </div>
+            )}
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-16 pt-12" data-aos="fade-up">
-                    <p className="text-primary font-bold tracking-widest uppercase mb-3">Magical Memories</p>
+                <div className="text-center mb-12 pt-12" data-aos="fade-up">
+                    <p className="text-primary font-bold tracking-widest uppercase mb-3">
+                        {isPreview ? 'Visual Journey' : 'Magical Memories'}
+                    </p>
                     <h1 className="text-4xl md:text-6xl font-black text-dark mb-4 drop-shadow-sm">
-                        Please Visit <span className="text-primary">Doraemon Gallery</span>
+                        {isPreview ? <>Captured <span className="text-primary">Moments</span></> : <>Please Visit <span className="text-primary">Doraemon Gallery</span></>}
                     </h1>
                     <div className="w-24 h-2 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full mb-6"></div>
                     <p className="text-gray-600 text-lg max-w-2xl mx-auto font-medium">
-                        Relive the cutest, funniest, and most adventurous moments from the Doraemon universe.
+                        {isPreview ? 'A glimpse into the fun and heartwarming world of Doraemon.' : 'Relive the cutest, funniest, and most adventurous moments from the Doraemon universe.'}
                     </p>
                 </div>
 
-                <GalleryFilter
-                    categories={categories}
-                    activeCategory={activeCategory}
-                    onSelectCategory={setActiveCategory}
-                />
+                {!isPreview && (
+                    <GalleryFilter
+                        categories={categories}
+                        activeCategory={activeCategory}
+                        onSelectCategory={setActiveCategory}
+                    />
+                )}
 
                 <GalleryGrid
                     images={filteredImages}
                     onImageClick={setSelectedImage}
                 />
+
+                {isPreview && (
+                    <div className="text-center mt-12">
+                        <a
+                            href="/gallery"
+                            className="inline-flex items-center gap-2 px-8 py-3 bg-white border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+                        >
+                            View Full Gallery 📸
+                        </a>
+                    </div>
+                )}
             </div>
 
             {selectedImage && (
